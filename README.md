@@ -14,5 +14,19 @@
       간결성
         코드 간결화
 
-- 동작 파라미터화 간결(익명 클래스 코드 등 구현 x)
-- 전체 표현식을 함수형 인터페이스의 인스턴스로 취급
+    - 동작 파라미터화 간결(익명 클래스 코드 등 구현 x)
+    - 전체 표현식을 함수형 인터페이스의 인스턴스로 취급
+
+    함수형 인터페이스
+        - Predicate
+            - boolean test(T t);
+        - Consumer
+            - void accept(T t);
+        - Function
+            - R apply(T t);
+    
+    메서드 레퍼런스
+        - List::contains;
+    
+    생성자 레퍼런스
+        - Apple::new;
