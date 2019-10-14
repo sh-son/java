@@ -24,22 +24,15 @@ public class Lambdas {
             this.color = color;
         }
 
-        public Integer getWeight() {
+        public int getWeight() {
             return weight;
-        }
-
-        public void setWeight(Integer weight) {
-            this.weight = weight;
         }
 
         public String getColor() {
             return color;
         }
 
-        public void setColor(String color) {
-            this.color = color;
-        }
-
+        @Override
         public String toString() {
             return "Apple{" +
                     "color='" + color + '\'' +

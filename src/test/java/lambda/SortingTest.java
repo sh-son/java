@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class SortingTest {
 
     @Test
-    public void AppleComparator(){
+    public void testSorting(){
         // 1
         List<Sorting.Apple> inventory = new ArrayList<>();
         inventory.addAll(Arrays.asList(new Sorting.Apple(80,"green"), new Sorting.Apple(155, "green"), new Sorting.Apple(120, "red")));

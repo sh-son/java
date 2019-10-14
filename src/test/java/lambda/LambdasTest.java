@@ -15,8 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class LambdasTest {
 
     @Test
-    public void ApplePredicate() {
-        Lambdas lambdas = new Lambdas();
+    public void testPredicate() {
 
         Runnable r = () -> System.out.println("Hello!");
         r.run();
@@ -24,7 +23,7 @@ class LambdasTest {
 
         List<Lambdas.Apple> inventory = Arrays.asList(new Lambdas.Apple(80,"green"), new Lambdas.Apple(155, "green"), new Lambdas.Apple(120, "red"));
 
-        List<Lambdas.Apple> greenApples = lambdas.filter(inventory, (Lambdas.Apple a) -> "green".equals(a.getColor()));
+        List<Lambdas.Apple> greenApples = Lambdas.filter(inventory, a -> "green".equals(a.getColor()));
 
         List<String> testList = new ArrayList<>();
         for(Lambdas.Apple item : greenApples) {
@@ -33,10 +32,10 @@ class LambdasTest {
         assertThat(testList, contains("green", "green"));
 
 
-        Comparator<Lambdas.Apple> c = (Lambdas.Apple a1, Lambdas.Apple a2) -> a1.getWeight().compareTo(a2.getWeight());
+        Comparator<Lambdas.Apple> c = (a1, a2) -> new Integer(a1.getWeight()).compareTo(a2.getWeight());
         inventory.sort(c);
 
-        assertEquals((int)inventory.get(0).getWeight(), 80);
+        assertEquals(inventory.get(0).getWeight(), 80);
     }
 
 }

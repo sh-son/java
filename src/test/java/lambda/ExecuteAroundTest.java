@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 class ExecuteAroundTest {
 
     @Test
-    public void BufferedReaderProcessor() throws IOException {
+    public void testBufferedReader() throws IOException {
 
         String result = processFileLimited();
         assertNotNull(result);
