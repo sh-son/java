@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;
@@ -90,7 +91,7 @@ public class TraderAndTransactionTest {
                 .map(Transaction::getValue)
                 .reduce(Integer::max);
 
-        assertEquals(max, 1000);
+        assertEquals(Optional.of(max.get()), Optional.of(1000));
 
 
         // 전체 트랜잭션 중 최솟값을 얼마인가?
@@ -98,6 +99,20 @@ public class TraderAndTransactionTest {
                 .map(Transaction::getValue)
                 .reduce(Integer::min);
 
-        assertEquals(min, 300);
+        assertEquals(Optional.of(min.get()), Optional.of(300));
+
+
+        // 피보나치 연습
+        Stream.iterate(new int[] {0,1}, t -> new int[] {t[1], t[0] + t[1]})
+                .limit(20)
+                .forEach(t -> System.out.println("(" + t[0] + ", " + t[1] + ")"));
+
+        long a = Stream.iterate(new int[] {0,1}, t -> new int[] {t[1], t[0] + t[1]})
+                .limit(10)
+                .map(t -> t[0])
+                .mapToInt(Integer::intValue)
+                .sum();
+
+        System.out.println(a);
     }
 }
